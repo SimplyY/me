@@ -1,4 +1,4 @@
-<!-- build: 78587e4 -->
+<!-- build: ca40c0c -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -18,164 +18,36 @@
     margin: 0 auto;
     padding: 24px 20px 60px;
   }
-  header {
-    text-align: center;
-    padding: 40px 0 32px;
-  }
-  header h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: #2c2416;
-  }
-  header .tagline {
-    margin-top: 8px;
-    font-size: 0.95rem;
-    color: #8b7355;
-  }
-  section {
-    margin-bottom: 40px;
-  }
-  section h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #8b7355;
-    letter-spacing: 0.06em;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #e8ddd0;
-  }
-  .intro p {
-    font-size: 0.95rem;
-    color: #5a4e3c;
-    margin-bottom: 10px;
-  }
-  .framework-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  .framework-card {
-    background: #fff;
-    border: 1px solid #e8ddd0;
-    border-radius: 8px;
-    padding: 16px;
-  }
-  .framework-card .label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #a68a6b;
-    letter-spacing: 0.08em;
-  }
-  .framework-card .title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #2c2416;
-    margin: 4px 0;
-  }
-  .framework-card .desc {
-    font-size: 0.8rem;
-    color: #8b7b6b;
-    line-height: 1.55;
-  }
-  .project {
-    background: #fff;
-    border: 1px solid #e8ddd0;
-    border-radius: 8px;
-    padding: 18px 16px;
-    margin-bottom: 12px;
-  }
-  .project-highlight {
-    border-left: 3px solid #c4a97d;
-  }
-  .project-top {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .project-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-  .project-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: #2c2416;
-  }
-  .project-link {
-    font-size: 0.78rem;
-    color: #8b7355;
-    text-decoration: none;
-    margin-left: auto;
-  }
+  header { text-align: center; padding: 40px 0 32px; }
+  header h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: 0.04em; color: #2c2416; }
+  header .tagline { margin-top: 8px; font-size: 0.95rem; color: #8b7355; }
+  section { margin-bottom: 40px; }
+  section h2 { font-size: 1rem; font-weight: 600; color: #8b7355; letter-spacing: 0.06em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #e8ddd0; }
+  .intro p { font-size: 0.95rem; color: #5a4e3c; margin-bottom: 10px; }
+  .framework-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .framework-card { background: #fff; border: 1px solid #e8ddd0; border-radius: 8px; padding: 16px; }
+  .framework-card .label { font-size: 0.75rem; font-weight: 600; color: #a68a6b; letter-spacing: 0.08em; }
+  .framework-card .title { font-size: 1.05rem; font-weight: 700; color: #2c2416; margin: 4px 0; }
+  .framework-card .desc { font-size: 0.8rem; color: #8b7b6b; line-height: 1.55; }
+  .project { background: #fff; border: 1px solid #e8ddd0; border-radius: 8px; padding: 18px 16px; margin-bottom: 12px; }
+  .project-highlight { border-left: 3px solid #c4a97d; }
+  .project-top { display: flex; align-items: center; gap: 10px; }
+  .project-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .project-name { font-weight: 600; font-size: 0.95rem; color: #2c2416; }
+  .project-link { font-size: 0.78rem; color: #8b7355; text-decoration: none; margin-left: auto; }
   .project-link:hover { text-decoration: underline; }
-  .project-desc {
-    margin-top: 8px;
-    font-size: 0.85rem;
-    color: #6b5e4f;
-    line-height: 1.6;
-  }
-  .project-tags {
-    margin-top: 8px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .project-tags span {
-    font-size: 0.7rem;
-    color: #a68a6b;
-    background: #f5efe5;
-    padding: 2px 8px;
-    border-radius: 4px;
-  }
-  .directions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .direction {
-    background: #fff;
-    border: 1px solid #e8ddd0;
-    border-radius: 8px;
-    padding: 14px 16px;
-  }
-  .direction-highlight {
-    border-left: 3px solid #c4a97d;
-  }
-  .direction .dir-title {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: #2c2416;
-  }
-  .direction .dir-desc {
-    margin-top: 4px;
-    font-size: 0.8rem;
-    color: #8b7b6b;
-    line-height: 1.55;
-  }
-  .quote {
-    text-align: center;
-    padding: 24px 0 8px;
-    font-size: 0.9rem;
-    color: #a68a6b;
-    font-style: italic;
-  }
-  footer {
-    text-align: center;
-    padding-top: 24px;
-    font-size: 0.75rem;
-    color: #c4b5a5;
-  }
-  footer a {
-    color: #a68a6b;
-    text-decoration: none;
-  }
+  .project-what { margin-top: 6px; font-size: 0.8rem; color: #a68a6b; font-weight: 500; }
+  .project-why { margin-top: 4px; font-size: 0.85rem; color: #6b5e4f; line-height: 1.6; }
+  .project-tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-tags span { font-size: 0.7rem; color: #a68a6b; background: #f5efe5; padding: 2px 8px; border-radius: 4px; }
+  .directions { display: flex; flex-direction: column; gap: 10px; }
+  .direction { background: #fff; border: 1px solid #e8ddd0; border-radius: 8px; padding: 14px 16px; }
+  .direction-highlight { border-left: 3px solid #c4a97d; }
+  .direction .dir-title { font-weight: 600; font-size: 0.9rem; color: #2c2416; }
+  .direction .dir-desc { margin-top: 4px; font-size: 0.8rem; color: #8b7b6b; line-height: 1.55; }
+  .quote { text-align: center; padding: 24px 0 8px; font-size: 0.9rem; color: #a68a6b; font-style: italic; }
+  footer { text-align: center; padding-top: 24px; font-size: 0.75rem; color: #c4b5a5; }
+  footer a { color: #a68a6b; text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 </style>
 </head>
@@ -229,7 +101,8 @@
       <div class="project-name">Learn-X</div>
       <a class="project-link" href="https://github.com/SimplyY/learn-x" target="_blank">GitHub</a>
     </div>
-    <div class="project-desc">认知不是堆出来的，是筛出来的。我需要一个系统帮我从周复一周的信息洪流里，筛出真正值得保留的判断、原则和方向变化，而不是被 AI 的产出淹没。Learn-X 就是这个筛子。</div>
+    <div class="project-what">个人认知进化系统</div>
+    <div class="project-why">认知不是堆出来的，是筛出来的。从周复一周的信息洪流里，筛出真正值得保留的判断和方向变化。</div>
     <div class="project-tags"><span>认知系统</span><span>Chat Pack</span><span>飞书</span><span>Codex</span></div>
   </div>
 
@@ -239,7 +112,8 @@
       <div class="project-name">Research-X</div>
       <a class="project-link" href="https://github.com/SimplyY/research-x" target="_blank">GitHub</a>
     </div>
-    <div class="project-desc">真正值得深读的东西很少。大多数内容读完就忘，少数值得反复思考、连接、输出。Research-X 让我把那些「少数」变成可长期维护的研究资产，而不是收藏夹里的又一个链接。</div>
+    <div class="project-what">个人主题研究院</div>
+    <div class="project-why">把少数值得深读的东西，变成可长期维护的研究资产，而不是收藏夹里的又一个链接。</div>
     <div class="project-tags"><span>研究</span><span>飞书多维表格</span><span>Worker</span></div>
   </div>
 
@@ -249,7 +123,8 @@
       <div class="project-name">Invest-X</div>
       <a class="project-link" href="https://github.com/SimplyY/invest-x" target="_blank">GitHub</a>
     </div>
-    <div class="project-desc">投资最大的敌人不是市场，是自己的情绪和叙事。我需要每月一次冷冰冰的事实复盘，把操作记录变成可审计的认知轨迹，而不是事后编故事。Invest-X 就是那张冷冰冰的底稿。</div>
+    <div class="project-what">投资月记生成器</div>
+    <div class="project-why">投资最大的敌人是自己的情绪。每月一次冷冰冰的事实复盘，把操作变成可审计的认知轨迹。</div>
     <div class="project-tags"><span>投资</span><span>飞书</span><span>月记</span></div>
   </div>
 
@@ -259,7 +134,8 @@
       <div class="project-name">Health-X</div>
       <a class="project-link" href="https://github.com/SimplyY/health-x" target="_blank">GitHub</a>
     </div>
-    <div class="project-desc">身体是原子世界的底座。两次手术之后，我需要一个系统帮我把健康数据从「看过就忘的截图」变成可追踪的趋势，让数据替我记住那些容易被忽略的缓慢变化。</div>
+    <div class="project-what">健康数据追踪</div>
+    <div class="project-why">身体是原子世界的底座。把健康数据从「看过就忘的截图」变成可追踪的趋势。</div>
     <div class="project-tags"><span>健康</span><span>数据</span><span>飞书</span></div>
   </div>
 
@@ -269,7 +145,8 @@
       <div class="project-name">Lark Channel Bridge</div>
       <a class="project-link" href="https://github.com/SimplyY/lark-channel-bridge" target="_blank">GitHub</a>
     </div>
-    <div class="project-desc">AI Coding 最爽的时刻不是坐在电脑前敲提示词，而是掏出手机说一句话，Agent 就帮你把事情做了。飞书是我最常用的手机入口，把它和 Codex 桥接起来，让 AI 从桌面工具变成随身伙伴。</div>
+    <div class="project-what">飞书-Codex 桥接</div>
+    <div class="project-why">掏出手机说一句话，AI 就帮你把事情做了。让 Codex 从桌面工具变成随身伙伴。</div>
     <div class="project-tags"><span>飞书</span><span>Codex</span><span>Bot</span><span>自动化</span></div>
   </div>
 </section>
@@ -279,19 +156,19 @@
   <div class="directions">
     <div class="direction direction-highlight">
       <div class="dir-title">AI Coding 生产力</div>
-      <div class="dir-desc">AI 时代，一个人的生产力上限不再由时间和体力决定，而是由「能否把想法快速变成可运行的系统」决定。Codex CLI + 飞书生态是我的 Build 基础设施。</div>
+      <div class="dir-desc">一个人的生产力上限不再由时间决定，而是由「能否把想法快速变成可运行的系统」决定。</div>
     </div>
     <div class="direction">
       <div class="dir-title">教育与游戏</div>
-      <div class="dir-desc">真正的学习发生在「我想做」而不是「我该学」的时候。和孩子一起设计游戏，让策略思维、资源取舍和失败复盘在试玩中自然发生。</div>
+      <div class="dir-desc">真正的学习发生在「我想做」而不是「我该学」的时候。和孩子一起设计游戏，让策略思维在试玩中自然发生。</div>
     </div>
     <div class="direction">
       <div class="dir-title">价值投资</div>
-      <div class="dir-desc">投资不是为了赚钱，是为了更好的生活。长期价值投资是对世界的一种判断方式，工具只辅助复盘，判断永远属于人。</div>
+      <div class="dir-desc">投资不是为了赚钱，是为了更好的生活。工具只辅助复盘，判断永远属于人。</div>
     </div>
     <div class="direction">
       <div class="dir-title">AI 时代人何以自处</div>
-      <div class="dir-desc">这是我的核心母题。AI 可以放大一切，但身体、关系、选择、审美和真实行动不可替代。让 AI 成为剑，而不是茧。</div>
+      <div class="dir-desc">我的核心母题。AI 可以放大一切，但身体、关系、选择和真实行动不可替代。让 AI 成为剑，而不是茧。</div>
     </div>
   </div>
 </section>
@@ -299,7 +176,7 @@
 <div class="quote">「着力即差」—— 苏轼</div>
 
 <footer>
-  <p>Built with AI · #78587e4 · <a href="https://github.com/SimplyY" target="_blank">GitHub</a></p>
+  <p>Built with AI · #ca40c0c · <a href="https://github.com/SimplyY" target="_blank">GitHub</a></p>
 </footer>
 
 </body>
