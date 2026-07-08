@@ -48,6 +48,18 @@
   .direction .dir-title { font-weight: 600; font-size: 0.9rem; color: #2c2416; }
   .direction .dir-desc { margin-top: 4px; font-size: 0.8rem; color: #8b7b6b; line-height: 1.55; }
   .quote { text-align: center; padding: 24px 0 8px; font-size: 0.9rem; color: #a68a6b; font-style: italic; }
+
+  /* 全部项目表格 */
+  .all-projects { font-size: 0.8rem; }
+  .ap-row { display: flex; align-items: baseline; padding: 8px 0; border-bottom: 1px solid #f0ebe3; }
+  .ap-row:last-child { border-bottom: none; }
+  .ap-header { font-weight: 600; color: #a68a6b; font-size: 0.72rem; letter-spacing: 0.05em; }
+  .ap-num { width: 28px; flex-shrink: 0; color: #c4b5a5; text-align: right; padding-right: 8px; }
+  .ap-header .ap-num { color: #a68a6b; }
+  .ap-name { width: 130px; flex-shrink: 0; font-weight: 600; color: #2c2416; }
+  .ap-name a { color: #2c2416; text-decoration: none; }
+  .ap-name a:hover { color: #8b7355; }
+  .ap-desc { flex: 1; color: #8b7b6b; font-size: 0.78rem; line-height: 1.45; }
   footer { text-align: center; padding-top: 24px; font-size: 0.75rem; color: #c4b5a5; }
   footer a { color: #a68a6b; text-decoration: none; }
   footer a:hover { text-decoration: underline; }
@@ -160,8 +172,71 @@
   </div>
 </section>
 
+
+<section>
+  <h2>全部项目</h2>
+  <div class="all-projects">
+    <div class="ap-row ap-header">
+      <span class="ap-num">#</span>
+      <span class="ap-name">项目</span>
+      <span class="ap-desc">定位</span>
+    </div>
+    <div class="ap-row">
+      <span class="ap-num">1</span>
+      <span class="ap-name"><a href="https://github.com/SimplyY/lark-channel-bridge" target="_blank">lark-channel-bridge</a></span>
+      <span class="ap-desc">桥接中枢：飞书消息与本地 Agent 的配置、群注册、机器人协作</span>
+    </div>
+    <div class="ap-row">
+      <span class="ap-num">2</span>
+      <span class="ap-name"><a href="https://ywhome.feishu.cn/base/W6NLbDh1YahvZ9sbjIccEirBnae" target="_blank">learn-x</a></span>
+      <span class="ap-desc">认知系统：学习输入、复盘、知识沉淀的全流程自动化</span>
+    </div>
+    <div class="ap-row">
+      <span class="ap-num">3</span>
+      <span class="ap-name"><a href="https://simplyy.github.io/core-repos-index/" target="_blank">core-repos-index</a></span>
+      <span class="ap-desc">项目入口中枢：个人 AI 项目体系的总览与导航</span>
+    </div>
+    <div class="ap-row">
+      <span class="ap-num">4</span>
+      <span class="ap-name"><a href="https://ywhome.feishu.cn/base/bascnZ4G9HA9YSIXc2wUC4lSNlC" target="_blank">invest-x</a></span>
+      <span class="ap-desc">投资系统：资产配置与投资记录管理，月度复盘与市场温度监控</span>
+    </div>
+    <div class="ap-row">
+      <span class="ap-num">5</span>
+      <span class="ap-name"><a href="https://ywhome.feishu.cn/base/W6NLbDh1YahvZ9sbjIccEirBnae" target="_blank">research-x</a></span>
+      <span class="ap-desc">研究系统：多维表格驱动的深度研究、结构化输出与归档</span>
+    </div>
+    <div class="ap-row">
+      <span class="ap-num">6</span>
+      <span class="ap-name"><a href="https://ywhome.feishu.cn/wiki/MLzywkyRCi7hJeklH7iciFC9nRc" target="_blank">health-x</a></span>
+      <span class="ap-desc">健康系统：体重、运动、睡眠的追踪分析与趋势洞察</span>
+    </div>
+    <div class="ap-row">
+      <span class="ap-num">7</span>
+      <span class="ap-name"><a href="https://ywhome.feishu.cn/base/WPZRbLRrGarf8bsfYoJcZ8Kwnqc" target="_blank">life-x</a></span>
+      <span class="ap-desc">修心系统：日常反思、情绪记录、习惯养成的沉淀闭环</span>
+    </div>
+    <div class="ap-row">
+      <span class="ap-num">8</span>
+      <span class="ap-name"><a href="https://github.com/SimplyY/read-x" target="_blank">read-x</a></span>
+      <span class="ap-desc">阅读系统：微信读书管理与长文精读的结构化输出</span>
+    </div>
+    <div class="ap-row">
+      <span class="ap-num">9</span>
+      <span class="ap-name"><a href="https://ywhome.feishu.cn/base/bascnZ4G9HA9YSIXc2wUC4lSNlC" target="_blank">invest-log</a></span>
+      <span class="ap-desc">投资提醒系统：有知有行温度监控、定时推送与资产快照</span>
+    </div>
+    <div class="ap-row">
+      <span class="ap-num">10</span>
+      <span class="ap-name"><a href="https://github.com/SimplyY/skills" target="_blank">skills</a></span>
+      <span class="ap-desc">Skill 中心：跨项目 Skill 与 Workflow 的创建、维护和版本管理</span>
+    </div>
+  </div>
+</section>
+
 <section>
   <h2>当前探索</h2>
+
   <div class="directions">
     <div class="direction direction-highlight">
       <div class="dir-title">AI Coding 生产力</div>
