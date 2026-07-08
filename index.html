@@ -83,6 +83,9 @@
     padding: 18px 16px;
     margin-bottom: 12px;
   }
+  .project-highlight {
+    border-left: 3px solid #c4a97d;
+  }
   .project-top {
     display: flex;
     align-items: center;
@@ -140,6 +143,9 @@
     border-radius: 8px;
     padding: 14px 16px;
   }
+  .direction-highlight {
+    border-left: 3px solid #c4a97d;
+  }
   .direction .dir-title {
     font-weight: 600;
     font-size: 0.9rem;
@@ -172,10 +178,12 @@
 </style>
 </head>
 <body>
+
 <header>
   <h1>Yuwei</h1>
   <p class="tagline">读书人 · AI Coding Builder · 探索小而美</p>
 </header>
+
 <section>
   <h2>关于我</h2>
   <div class="intro">
@@ -183,6 +191,7 @@
     <p>2017 年起在杭州、武汉做过工程师和架构师，目前在 gap 中，用 AI Coding 构建自己的数字工具箱。</p>
   </div>
 </section>
+
 <section>
   <h2>道 · 法 · 术 · 器</h2>
   <div class="framework-grid">
@@ -208,96 +217,88 @@
     </div>
   </div>
 </section>
+
 <section>
   <h2>核心 Build</h2>
-  <div class="project">
+
+  <div class="project project-highlight">
     <div class="project-top">
       <div class="project-icon" style="background:#f0ebe3;">🧠</div>
       <div class="project-name">Learn-X</div>
-      <a class="project-link" href="https://github.com/yuwei-zh/learn-x" target="_blank">GitHub</a>
+      <a class="project-link" href="https://github.com/SimplyY/learn-x" target="_blank">GitHub</a>
     </div>
-    <div class="project-desc">个人认知进化系统。以「道」校准方向，以「法」形成判断，以「术」推动行动，以「器」降低成本。周度/月度/年度复盘闭环。</div>
+    <div class="project-desc">认知不是堆出来的，是筛出来的。我需要一个系统帮我从周复一周的信息洪流里，筛出真正值得保留的判断、原则和方向变化，而不是被 AI 的产出淹没。Learn-X 就是这个筛子。</div>
     <div class="project-tags"><span>认知系统</span><span>Chat Pack</span><span>飞书</span><span>Codex</span></div>
   </div>
-  <div class="project">
+
+  <div class="project project-highlight">
     <div class="project-top">
       <div class="project-icon" style="background:#f0ebe3;">📚</div>
       <div class="project-name">Research-X</div>
-      <a class="project-link" href="https://github.com/yuwei-zh/research-x" target="_blank">GitHub</a>
+      <a class="project-link" href="https://github.com/SimplyY/research-x" target="_blank">GitHub</a>
     </div>
-    <div class="project-desc">个人主题研究院。处理书籍、播客和长文，转化为可长期维护的研究资产。飞书协作 + 本地归档。</div>
+    <div class="project-desc">真正值得深读的东西很少。大多数内容读完就忘，少数值得反复思考、连接、输出。Research-X 让我把那些「少数」变成可长期维护的研究资产，而不是收藏夹里的又一个链接。</div>
     <div class="project-tags"><span>研究</span><span>飞书多维表格</span><span>Worker</span></div>
   </div>
-  <div class="project">
+
+  <div class="project project-highlight">
     <div class="project-top">
       <div class="project-icon" style="background:#f0ebe3;">⚖️</div>
       <div class="project-name">Invest-X</div>
-      <a class="project-link" href="https://github.com/yuwei-zh/invest-x" target="_blank">GitHub</a>
+      <a class="project-link" href="https://github.com/SimplyY/invest-x" target="_blank">GitHub</a>
     </div>
-    <div class="project-desc">只读投资月记生成器。从飞书多维表格读取资产配置和操作记录，生成月度事实底稿与认知复盘输入。</div>
+    <div class="project-desc">投资最大的敌人不是市场，是自己的情绪和叙事。我需要每月一次冷冰冰的事实复盘，把操作记录变成可审计的认知轨迹，而不是事后编故事。Invest-X 就是那张冷冰冰的底稿。</div>
     <div class="project-tags"><span>投资</span><span>飞书</span><span>月记</span></div>
   </div>
-  <div class="project">
-    <div class="project-top">
-      <div class="project-icon" style="background:#f0ebe3;">🏛️</div>
-      <div class="project-name">Fakao</div>
-      <a class="project-link" href="https://github.com/yuwei-zh/fakao" target="_blank">GitHub</a>
-    </div>
-    <div class="project-desc">觉晓法考错题自动化。PDF 导出 → 文本提取 → 飞书多维表格 → 知识点聚类 → 间隔复习队列。完整复盘闭环。</div>
-    <div class="project-tags"><span>法考</span><span>错题</span><span>间隔复习</span><span>飞书</span></div>
-  </div>
-  <div class="project">
-    <div class="project-top">
-      <div class="project-icon" style="background:#f0ebe3;">🎮</div>
-      <div class="project-name">Game-X</div>
-      <a class="project-link" href="https://github.com/yuwei-zh/game-x" target="_blank">GitHub</a>
-    </div>
-    <div class="project-desc">和孩子一起做游戏。把学生的想法快速做成浏览器 Demo，在试玩中学习策略、取舍和复盘。</div>
-    <div class="project-tags"><span>教育</span><span>游戏</span><span>HTML5</span></div>
-  </div>
-  <div class="project">
+
+  <div class="project project-highlight">
     <div class="project-top">
       <div class="project-icon" style="background:#f0ebe3;">💪</div>
       <div class="project-name">Health-X</div>
-      <a class="project-link" href="https://github.com/yuwei-zh/health-x" target="_blank">GitHub</a>
+      <a class="project-link" href="https://github.com/SimplyY/health-x" target="_blank">GitHub</a>
     </div>
-    <div class="project-desc">个人健康数据仓库。处理小米运动健康周报，跨表评分，写入飞书多维表格，生成健康趋势提示。</div>
+    <div class="project-desc">身体是原子世界的底座。两次手术之后，我需要一个系统帮我把健康数据从「看过就忘的截图」变成可追踪的趋势，让数据替我记住那些容易被忽略的缓慢变化。</div>
     <div class="project-tags"><span>健康</span><span>数据</span><span>飞书</span></div>
   </div>
-  <div class="project">
+
+  <div class="project project-highlight">
     <div class="project-top">
       <div class="project-icon" style="background:#f0ebe3;">🔗</div>
       <div class="project-name">Lark Channel Bridge</div>
-      <a class="project-link" href="https://github.com/yuwei-zh/lark-channel-bridge" target="_blank">GitHub</a>
+      <a class="project-link" href="https://github.com/SimplyY/lark-channel-bridge" target="_blank">GitHub</a>
     </div>
-    <div class="project-desc">飞书与 Codex CLI 的桥接层。让飞书消息直接驱动本地 AI Agent，实现群聊内自动化触发与多 Bot 协作。</div>
+    <div class="project-desc">AI Coding 最爽的时刻不是坐在电脑前敲提示词，而是掏出手机说一句话，Agent 就帮你把事情做了。飞书是我最常用的手机入口，把它和 Codex 桥接起来，让 AI 从桌面工具变成随身伙伴。</div>
     <div class="project-tags"><span>飞书</span><span>Codex</span><span>Bot</span><span>自动化</span></div>
   </div>
 </section>
+
 <section>
   <h2>当前探索</h2>
   <div class="directions">
-    <div class="direction">
+    <div class="direction direction-highlight">
       <div class="dir-title">AI Coding 生产力</div>
-      <div class="dir-desc">用 Codex CLI + 飞书生态构建个人数字工具箱，让 AI 从聊天助手变成真正能执行、能沉淀、能复用的 Build 伙伴。</div>
+      <div class="dir-desc">AI 时代，一个人的生产力上限不再由时间和体力决定，而是由「能否把想法快速变成可运行的系统」决定。Codex CLI + 飞书生态是我的 Build 基础设施。</div>
     </div>
     <div class="direction">
       <div class="dir-title">教育与游戏</div>
-      <div class="dir-desc">和孩子一起设计游戏，在试玩中学习策略思维。探索 AI 辅助的个性化教育路径。</div>
+      <div class="dir-desc">真正的学习发生在「我想做」而不是「我该学」的时候。和孩子一起设计游戏，让策略思维、资源取舍和失败复盘在试玩中自然发生。</div>
     </div>
     <div class="direction">
       <div class="dir-title">价值投资</div>
-      <div class="dir-desc">长期价值投资实践，用系统化工具辅助复盘，而非替代判断。</div>
+      <div class="dir-desc">投资不是为了赚钱，是为了更好的生活。长期价值投资是对世界的一种判断方式，工具只辅助复盘，判断永远属于人。</div>
     </div>
     <div class="direction">
       <div class="dir-title">AI 时代人何以自处</div>
-      <div class="dir-desc">AI 可以放大知识与效率，但不能替代身体、关系、选择与真实行动。守住主体性，让 AI 成为剑而不是茧。</div>
+      <div class="dir-desc">这是我的核心母题。AI 可以放大一切，但身体、关系、选择、审美和真实行动不可替代。让 AI 成为剑，而不是茧。</div>
     </div>
   </div>
 </section>
+
 <div class="quote">「着力即差」—— 苏轼</div>
+
 <footer>
-  <p>Built with AI · <a href="https://github.com/yuwei-zh" target="_blank">GitHub</a></p>
+  <p>Built with AI · <a href="https://github.com/SimplyY" target="_blank">GitHub</a></p>
 </footer>
+
 </body>
 </html>
