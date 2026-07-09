@@ -49,21 +49,7 @@
   .direction .dir-desc { margin-top: 4px; font-size: 0.8rem; color: #8b7b6b; line-height: 1.55; }
   .quote { text-align: center; padding: 24px 0 8px; font-size: 0.9rem; color: #a68a6b; font-style: italic; }
 
-  /* 全部项目表格 */
-  .all-projects { font-size: 0.8rem; }
-  .ap-row { display: flex; align-items: baseline; padding: 8px 0; border-bottom: 1px solid #f0ebe3; }
-  .ap-row:last-child { border-bottom: none; }
-  .ap-header { font-weight: 600; color: #a68a6b; font-size: 0.72rem; letter-spacing: 0.05em; }
-  .ap-num { width: 28px; flex-shrink: 0; color: #c4b5a5; text-align: right; padding-right: 8px; }
-  .ap-header .ap-num { color: #a68a6b; }
-  .ap-name { width: 130px; flex-shrink: 0; font-weight: 600; color: #2c2416; }
-  .ap-name a { color: #2c2416; text-decoration: none; }
-  .ap-name a:hover { color: #8b7355; }
-  .ap-desc { flex: 1; color: #8b7b6b; font-size: 0.78rem; line-height: 1.45; }
-  footer { text-align: center; padding-top: 24px; font-size: 0.75rem; color: #c4b5a5; }
-  footer a { color: #a68a6b; text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-
+  
   /* 弹窗 */
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 100; align-items: flex-end; justify-content: center; }
   .modal-overlay.active { display: flex; }
@@ -125,117 +111,89 @@
   <h2>核心项目</h2>
 
   <!-- 卡片平铺概要，点击弹窗看详情 -->
-
+  <!-- group-info-cards-start -->
+  <div class="project-card project-highlight" onclick="openModal('lark-channel-bridge')">
+    <div class="project-top">
+      <div class="project-icon" style="background:#f0ebe3;">🔗</div>
+      <div class="project-name">lark-channel-bridge</div>
+    </div>
+    <div class="project-summary">桥接中枢：飞书消息与本地 Agent 的配置、群注册、机器人协作</div>
+    </div>
   <div class="project-card project-highlight" onclick="openModal('learn-x')">
     <div class="project-top">
       <div class="project-icon" style="background:#f0ebe3;">🧠</div>
-      <div class="project-name">Learn-X</div>
+      <div class="project-name">learn-x</div>
     </div>
-    <div class="project-summary">个人认知中枢，把碎片信息变成可检索、可回溯的判断资产。</div>
-    <div class="project-tags"><span>认知系统</span><span>Chat Pack</span><span>飞书</span><span>Codex</span></div>
-  </div>
-
-  <div class="project-card project-highlight" onclick="openModal('research-x')">
+    <div class="project-summary">认知系统：学习输入、复盘、知识沉淀的全流程自动化</div>
+    <div class="project-tags"><span>build-bot-log</span><span>learn-x-input</span><span>learn-x-monthly-automation</span><span>learn-x-monthly-journal</span></div>
+    </div>
+  <div class="project-card project-highlight" onclick="openModal('index')">
     <div class="project-top">
-      <div class="project-icon" style="background:#f0ebe3;">📚</div>
-      <div class="project-name">Research-X</div>
+      <div class="project-icon" style="background:#f0ebe3;">🏠</div>
+      <div class="project-name">index</div>
     </div>
-    <div class="project-summary">深度研究体系，把值得深读的内容变成可长期维护的知识资产。</div>
-    <div class="project-tags"><span>研究</span><span>飞书多维表格</span><span>Worker</span><span>Codex</span></div>
-  </div>
-
+    <div class="project-summary">项目入口中枢：维护核心项目索引站点和总群信息飞书文档，展示所有项目的系统定位和核心能力。</div>
+    </div>
   <div class="project-card project-highlight" onclick="openModal('invest-x')">
     <div class="project-top">
       <div class="project-icon" style="background:#f0ebe3;">⚖️</div>
-      <div class="project-name">Invest-X</div>
+      <div class="project-name">投资系统</div>
     </div>
-    <div class="project-summary">投资理财追踪系统，让每笔操作变成可审计的认知轨迹。</div>
-    <div class="project-tags"><span>投资</span><span>有知有行</span><span>飞书</span><span>月记</span></div>
-  </div>
-
-  <div class="project-card project-highlight" onclick="openModal('health-x')">
+    <div class="project-summary">投资数据管理：资产配置与操作记录，月度复盘与市场温度监控。</div>
+    <div class="project-tags"><span>投资</span><span>资产配置</span><span>数据管理</span></div>
+    </div>
+  <div class="project-card project-highlight" onclick="openModal('research-x')">
+    <div class="project-top">
+      <div class="project-icon" style="background:#f0ebe3;">📚</div>
+      <div class="project-name">research-x</div>
+    </div>
+    <div class="project-summary">研究系统：多维表格驱动的深度研究、结构化输出与归档</div>
+    <div class="project-tags"><span>research-x</span><span>wisdom-gate</span></div>
+    </div>
+  <div class="project-card" onclick="openModal('health-x')">
     <div class="project-top">
       <div class="project-icon" style="background:#f0ebe3;">💪</div>
-      <div class="project-name">Health-X</div>
+      <div class="project-name">health-x</div>
     </div>
-    <div class="project-summary">身体健康追踪，把运动截图自动变成可追踪的趋势数据。</div>
-    <div class="project-tags"><span>健康</span><span>小米运动</span><span>飞书</span><span>Learn-X</span></div>
-  </div>
-
-  <div class="project-card project-highlight" onclick="openModal('lark-bridge')">
+    <div class="project-summary">健康系统：体重、运动、睡眠的追踪分析与趋势洞察</div>
+    <div class="project-tags"><span>健康周报</span></div>
+    </div>
+  <div class="project-card" onclick="openModal('life-x')">
     <div class="project-top">
-      <div class="project-icon" style="background:#f0ebe3;">🔗</div>
-      <div class="project-name">Lark Channel Bridge</div>
+      <div class="project-icon" style="background:#f0ebe3;">🌱</div>
+      <div class="project-name">life-x</div>
     </div>
-    <div class="project-summary">飞书与 AI 的桥梁，掏出手机说句话就能让 AI 帮你做事。</div>
-    <div class="project-tags"><span>飞书</span><span>Codex</span><span>Bot</span><span>自动化</span></div>
-  </div>
+    <div class="project-summary">生活系统：日常反思、情绪记录、习惯养成的沉淀闭环</div>
+    <div class="project-tags"><span>mindfulness-daily</span></div>
+    </div>
+  <div class="project-card" onclick="openModal('read-x')">
+    <div class="project-top">
+      <div class="project-icon" style="background:#f0ebe3;">📖</div>
+      <div class="project-name">read-x</div>
+    </div>
+    <div class="project-summary">阅读系统：微信读书管理与长文精读的结构化输出</div>
+    <div class="project-tags"><span>long-read</span></div>
+    </div>
+  <div class="project-card" onclick="openModal('invest-log')">
+    <div class="project-top">
+      <div class="project-icon" style="background:#f0ebe3;">📈</div>
+      <div class="project-name">invest-log</div>
+    </div>
+    <div class="project-summary">投资提醒系统：有知有行温度监控、定时推送与资产快照</div>
+    <div class="project-tags"><span>mobile-asset-update</span><span>youzhiyouxing-temperature-reminder</span></div>
+    </div>
+  <div class="project-card" onclick="openModal('skills')">
+    <div class="project-top">
+      <div class="project-icon" style="background:#f0ebe3;">🔧</div>
+      <div class="project-name">skills</div>
+    </div>
+    <div class="project-summary">Skill 中心：跨项目 Skill 与 Workflow 的创建、维护和版本管理</div>
+    </div>
+<!-- group-info-cards-end -->
 </section>
 
 
-<section>
-  <h2>全部项目</h2>
-  <div class="all-projects">
-    <div class="ap-row ap-header">
-      <span class="ap-num">#</span>
-      <span class="ap-name">项目</span>
-      <span class="ap-desc">定位</span>
-    </div>
-    <!-- group-info-table-start -->
-    <div class="ap-row">
-      <span class="ap-num">1</span>
-      <span class="ap-name"><a href="https://github.com/SimplyY/lark-channel-bridge" target="_blank">lark-channel-bridge</a></span>
-      <span class="ap-desc">桥接中枢：飞书消息与本地 Agent 的配置、群注册、机器人协作</span>
-    </div>
-    <div class="ap-row">
-      <span class="ap-num">2</span>
-      <span class="ap-name"><a href="https://ywhome.feishu.cn/base/W6NLbDh1YahvZ9sbjIccEirBnae" target="_blank">learn-x</a></span>
-      <span class="ap-desc">认知系统：学习输入、复盘、知识沉淀的全流程自动化</span>
-    </div>
-    <div class="ap-row">
-      <span class="ap-num">3</span>
-      <span class="ap-name"><a href="https://simplyy.github.io/core-repos-index/" target="_blank">core-repos-index</a></span>
-      <span class="ap-desc">项目入口中枢：个人 AI 项目体系的总览与导航，展示每个项目的系统定位和核心能力</span>
-    </div>
-    <div class="ap-row">
-      <span class="ap-num">4</span>
-      <span class="ap-name"><a href="https://ywhome.feishu.cn/base/bascnZ4G9HA9YSIXc2wUC4lSNlC" target="_blank">invest-x</a></span>
-      <span class="ap-desc">投资系统：资产配置与投资记录管理，月度复盘与市场温度监控。</span>
-    </div>
-    <div class="ap-row">
-      <span class="ap-num">5</span>
-      <span class="ap-name"><a href="https://ywhome.feishu.cn/base/W6NLbDh1YahvZ9sbjIccEirBnae" target="_blank">research-x</a></span>
-      <span class="ap-desc">研究系统：多维表格驱动的深度研究、结构化输出与归档</span>
-    </div>
-    <div class="ap-row">
-      <span class="ap-num">6</span>
-      <span class="ap-name"><a href="https://ywhome.feishu.cn/wiki/MLzywkyRCi7hJeklH7iciFC9nRc" target="_blank">health-x</a></span>
-      <span class="ap-desc">健康系统：体重、运动、睡眠的追踪分析与趋势洞察</span>
-    </div>
-    <div class="ap-row">
-      <span class="ap-num">7</span>
-      <span class="ap-name"><a href="https://ywhome.feishu.cn/base/WPZRbLRrGarf8bsfYoJcZ8Kwnqc" target="_blank">life-x</a></span>
-      <span class="ap-desc">生活系统：日常反思、情绪记录、习惯养成的沉淀闭环</span>
-    </div>
-    <div class="ap-row">
-      <span class="ap-num">8</span>
-      <span class="ap-name"><a href="https://github.com/SimplyY/read-x" target="_blank">read-x</a></span>
-      <span class="ap-desc">阅读系统：微信读书管理与长文精读的结构化输出</span>
-    </div>
-    <div class="ap-row">
-      <span class="ap-num">9</span>
-      <span class="ap-name"><a href="https://ywhome.feishu.cn/base/bascnZ4G9HA9YSIXc2wUC4lSNlC" target="_blank">invest-log</a></span>
-      <span class="ap-desc">投资提醒系统：有知有行温度监控、定时推送与资产快照</span>
-    </div>
-    <div class="ap-row">
-      <span class="ap-num">10</span>
-      <span class="ap-name"><a href="https://github.com/SimplyY/skills" target="_blank">skills</a></span>
-      <span class="ap-desc">Skill 中心：跨项目 Skill 与 Workflow 的创建、维护和版本管理</span>
-    </div>
-    <!-- group-info-table-end -->
-    
-  </div>
-</section>
+
 
 <section>
   <h2>当前探索</h2>
@@ -259,7 +217,7 @@
 <div class="quote">「着力即差」—— 苏轼</div>
 
 <footer>
-  <p>AI 构建 · <!-- build-hash -->#40e0e38<!-- /build-hash --> · <a href="https://github.com/SimplyY" target="_blank">GitHub</a></p>
+  <p>AI 构建 · <!-- build-hash -->#b74e230<!-- /build-hash --> · <a href="https://github.com/SimplyY" target="_blank">GitHub</a></p>
 </footer>
 
 <!-- 项目详情弹窗 -->
@@ -278,42 +236,19 @@
 
 <script>
 const projects = {
-  'learn-x': {
-    name: 'Learn-X',
-    icon: '🧠',
-    detail: '结合飞书多维表格和 Codex CLI，构建周/月/年全周期复盘体系。通过道法术器认知框架，将 Chat Pack 对话、多源输入（Health-X、Invest-X 等）汇集一处，自动生成结构化底稿，让碎片信息变成可检索、可回溯的判断资产。不是笔记工具，而是一个持续运转的认知操作系统——帮你筛出真正值得保留的判断和方向变化。',
-    link: 'https://github.com/SimplyY/learn-x',
-    tags: ['认知系统', 'Chat Pack', '飞书', 'Codex']
-  },
-  'research-x': {
-    name: 'Research-X',
-    icon: '📚',
-    detail: '基于飞书多维表格「明天智慧之门」统一管理研究材料，支持书籍、播客、长文等多种输入源。Worker 自动轮询待处理项，确认后异步归档为结构化 Markdown 文档。从信息筛选到深度加工到成果沉淀，全流程自动化，让研究不再是孤立的阅读行为，而是持续生长的知识网络。',
-    link: 'https://github.com/SimplyY/research-x',
-    tags: ['研究', '飞书多维表格', 'Worker', 'Codex']
-  },
-  'invest-x': {
-    name: 'Invest-X',
-    icon: '⚖️',
-    detail: '以飞书多维表格为核心，追踪 133+ 笔投资操作，每日自动截图资产并审计。接入有知有行温度数据，定期推送市场温度提醒。每月自动生成月度底稿，汇入 Learn-X 认知体系。不是选股工具，而是一个帮你看清自己决策模式的投资日志系统——让每笔操作变成可审计的认知轨迹，而不是情绪的奴隶。',
-    link: 'https://github.com/SimplyY/invest-x',
-    tags: ['投资', '有知有行', '飞书', '月记']
-  },
-  'health-x': {
-    name: 'Health-X',
-    icon: '💪',
-    detail: '解析小米运动健康周报截图，自动写入飞书多维表格。跨表关联日记评分，生成健康洞察并同步到 Learn-X 认知体系。模块化架构，可扩展接入新数据源。把「今天走了多少步」变成「这个月趋势如何、跟情绪和睡眠有什么关系」——身体是原子世界的底座，值得认真对待。',
-    link: 'https://github.com/SimplyY/health-x',
-    tags: ['健康', '小米运动', '飞书', 'Learn-X']
-  },
-  'lark-bridge': {
-    name: 'Lark Channel Bridge',
-    icon: '🔗',
-    detail: '将飞书消息实时桥接到本地 Codex CLI，支持多 Bot 协作、多 Profile 管理、交互卡片回调。群注册信息自动维护，安全沙箱加命令审批保障执行安全。是整个项目体系的入口层——所有群的能力都通过它触达，手机就是你的 AI 终端。掏出手机说一句话，AI 就帮你把事情做了。',
-    link: 'https://github.com/SimplyY/lark-channel-bridge',
-    tags: ['飞书', 'Codex', 'Bot', '自动化']
-  }
-};
+    <!-- group-info-modals-start -->
+  'lark-channel-bridge': { name: 'lark-channel-bridge', icon: '🔗', detail: '桥接中枢：飞书消息与本地 Agent 的配置、群注册、机器人协作', link: 'https://github.com/SimplyY/lark-channel-bridge', tags: [] },
+  'learn-x': { name: 'learn-x', icon: '🧠', detail: '认知系统：学习输入、复盘、知识沉淀的全流程自动化。飞书机器人 / Code X Bot 每周 Build 复盘报告生成；采集外部每周证据（微信读书等）写入 Learn-X 输入目录', link: 'https://ywhome.feishu.cn/base/W6NLbDh1YahvZ9sbjIccEirBnae', tags: ["build-bot-log","learn-x-input","learn-x-monthly-automation","learn-x-monthly-journal"] },
+  'index': { name: 'index', icon: '🏠', detail: '项目入口中枢：维护核心项目索引站点和总群信息飞书文档，展示所有项目的系统定位和核心能力。', link: 'https://simplyy.github.io/core-repos-index/', tags: [] },
+  'invest-x': { name: '投资系统', icon: '⚖️', detail: '>-', link: 'https://ywhome.feishu.cn/base/bascnZ4G9HA9YSIXc2wUC4lSNlC', tags: ["投资","资产配置","数据管理"] },
+  'research-x': { name: 'research-x', icon: '📚', detail: '研究系统：多维表格驱动的深度研究、结构化输出与归档。书籍/播客/长文研究：加入候选或直接研究输出飞书文档；高质量认知内容结构化存入智慧之门 Base', link: 'https://ywhome.feishu.cn/base/W6NLbDh1YahvZ9sbjIccEirBnae', tags: ["research-x","wisdom-gate"] },
+  'health-x': { name: 'health-x', icon: '💪', detail: '健康系统：体重、运动、睡眠的追踪分析与趋势洞察。解析小米运动健康周报截图与 JSON，校验数据、写入飞书多维表格，同步健康洞察到 Learn-X。', link: 'https://ywhome.feishu.cn/wiki/MLzywkyRCi7hJeklH7iciFC9nRc', tags: ["健康周报"] },
+  'life-x': { name: 'life-x', icon: '🌱', detail: '生活系统：日常反思、情绪记录、习惯养成的沉淀闭环。基于每日日记生成个性化修心引导并发送到飞书群', link: 'https://ywhome.feishu.cn/base/WPZRbLRrGarf8bsfYoJcZ8Kwnqc', tags: ["mindfulness-daily"] },
+  'read-x': { name: 'read-x', icon: '📖', detail: '阅读系统：微信读书管理与长文精读的结构化输出。长文链接/粘贴自动提取、结构化拆解、精读摘要输出', link: 'https://github.com/SimplyY/read-x', tags: ["long-read"] },
+  'invest-log': { name: 'invest-log', icon: '📈', detail: '投资提醒系统：有知有行温度监控、定时推送与资产快照。手机端个人资产更新：截图导入→审计→有知有行同步；有知有行每日/月度温度提醒', link: 'https://ywhome.feishu.cn/base/bascnZ4G9HA9YSIXc2wUC4lSNlC', tags: ["mobile-asset-update","youzhiyouxing-temperature-reminder"] },
+  'skills': { name: 'skills', icon: '🔧', detail: 'Skill 中心：跨项目 Skill 与 Workflow 的创建、维护和版本管理', link: 'https://github.com/SimplyY/skills', tags: [] },
+    <!-- group-info-modals-end -->
+  };
 
 function openModal(id) {
   const p = projects[id];
