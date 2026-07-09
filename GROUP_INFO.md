@@ -5,7 +5,7 @@ chat_id: "oc_e1d8e5ce94bd9b6390137efc6d07d6e2"
 group_name: "Group Index"
 repo_path: "/Users/yuwei/code/index"
 group_info_path: "/Users/yuwei/code/index/GROUP_INFO.md"
-updated_at: "2026-07-09T06:18:26.321Z"
+updated_at: "2026-07-09T06:20:13.921Z"
 icon: "📦"
 name_zh: "Group Index"
 summary: "项目入口中枢：维护核心项目索引站点和总群信息飞书文档，展示所有项目的系统定位和核心能力。"
@@ -31,4 +31,4 @@ priority: 3
 - 工作目录：可访问
 - 链接数：2
 - Skill 扫描：正常
-- 最近更新时间：2026-07-09T06:18:26.321Z
+- 最近更新时间：2026-07-09T06:20:13.921Z
