@@ -1,96 +1,82 @@
-<!--
-  index Agent 指引
-  供 Codex / Claude 等 agent 在本仓库中工作时读取。
-  -->
+# AGENTS.md
 
-  # AGENTS.md
+## 项目定位
 
-  ## 项目定位
+- 项目名称：Group Index
+- 项目类型：飞书多维表格驱动的项目索引与群信息管理仓库
+- 核心用途：用一张飞书多维表格 `group index` 管理项目的人脑字段，并派生 `GROUP_INFO.md` 和群置顶内容。
+- 主要调用方：飞书群 Group Index 中的 Codex 小助手、`scripts/group-info.mjs`
 
-  - 项目名称：index（核心项目索引站点）
-  - 项目类型：静态 HTML 站点，部署到 GitHub Pages
-  - 核心用途：维护 https://simplyy.github.io/core-repos-index/ ，展示全部 AI 项目的概要卡片、详情弹窗和汇总表格
-  - 主要调用方：飞书群 group index 中的 Codex 小助手、group-info 的 sync-site 脚本
+## 核心数据源
 
-  ## README 与 AGENTS 分工
+- 飞书多维表格：`group index`
+- 链接：https://ywhome.feishu.cn/base/AxMAbMTKOahp74sDuhqcERnrnph
+- 表：`group index`
+- 人工维护字段：项目、群名、群 ID、仓库路径、定位、优先级、链接、工作流、待办、备注。
+- 机器扫描字段：Skill、仓库数据源、可从代码或文档稳定读取的信息。
 
-  - 本仓库无 README.md，AGENTS.md 是唯一的 Codex 执行指引。
-  - GROUP_INFO.md 由 group-info 脚本自动生成，包含群绑定信息和项目定位，不要手动编辑。
-  - index.html 中 `<!-- group-info-*-start -->` 到 `<!-- group-info-*-end -->` 之间的区域由 sync-site 脚本管理，不要手动编辑。
+原则：
 
-  ## 当前 MVP / 工作边界
+- 扫描不出来、只在用户脑子里的字段，放多维表格。
+- 扫描得出来的字段，以仓库扫描为准。
+- `state.json` 只保存运行状态，不保存人工判断字段。
+- 不再维护静态网站；多维表格截图或链接就是分享入口。
 
-  - 当前目标：维护站点正常运行，保持项目卡片和表格与 group-info 注册表同步。
-  - 本阶段只做：站点内容更新、样式微调、部署。
-  - 暂不做：引入 JS 框架、后端、数据库、动态路由。
+## 关键文件
 
-  ## 关键目录
+- `scripts/group-info.mjs`：唯一执行入口。
+- `state.json`：机器运行状态，只记录更新时间、置顶消息和上次摘要。
+- `GROUP_INFO.md`：本群 Agent 上下文，由脚本生成。
+- `AGENTS.md`：本文件。
 
-  - `index.html`：站点唯一文件，含 HTML/CSS/JS，全部内联。
-  - `GROUP_INFO.md`：群绑定信息，由 group-info 脚本自动生成。
-  - `AGENTS.md`：本文件。
-  - 无 `src/`、`scripts/`、`docs/`、`.agents/skills/` 目录。
+## 常用命令
 
-  ## 常用命令
+```bash
+# 查看全量项目
+node scripts/group-info.mjs list --format table
 
-  ```bash
-  # 同步项目表格到站点并部署（推荐）
-  node /Users/yuwei/code/skills/group-info/scripts/group-info.mjs sync-site --apply
+# 预览单个 GROUP_INFO.md，不写文件
+node scripts/group-info.mjs update --group index --dry-run
 
-  # 预览同步结果（不写文件）
-  node /Users/yuwei/code/skills/group-info/scripts/group-info.mjs sync-site --dry-run
+# 更新单个 GROUP_INFO.md
+node scripts/group-info.mjs update --group index --apply
 
-  # 查看全量项目列表
-  node /Users/yuwei/code/skills/group-info/scripts/group-info.mjs list --format table
-  ```
+# 更新全部 GROUP_INFO.md
+node scripts/group-info.mjs update-all --apply
 
-  ## 核心任务入口
+# 发卡片 + 置顶
+node scripts/group-info.mjs top --group index --apply
 
-  - **更新站点**：运行 `sync-site --apply`，脚本自动替换表格、更新缓存 hash、git commit + push。
-  - **手动编辑**：仅限非自动生成区域（关于我、道法术器、当前探索、页脚等）。自动生成区域（卡片、弹窗、表格）走 sync-site。
-  - **部署**：推送到 GitHub main 分支，GitHub Pages 自动部署。缓存问题：修改 build hash（footer 中的 `#xxx`）。
+# 自检
+node scripts/group-info.mjs self-test
+```
 
-  ## 数据与凭证安全边界
+## 群置顶边界
 
-  - 本项目无 .env、无密钥、无数据库、无 API 调用。
-  - index.html 是公开静态站点，不要在其中写入任何私密信息。
-  - sync-site 脚本会 git commit + push，执行前确认工作区干净。
+- 群置顶走 `top` 子命令：发卡片 + 置顶。
+- 每个群都需要群置顶，不由多维表格字段控制。
+- 是否更新置顶，继续由原有摘要对比逻辑决定。
+- 不新增“群置顶展示”之类字段。
 
-  ## Codex 默认执行流程
+## Codex 默认执行流程
 
-  1. 先读本文件了解项目定位和边界。
-  2. 修改前查看 git status，避免覆盖用户手动改动。
-  3. 站点内容更新优先走 sync-site 脚本，不要手动编辑自动生成区域。
-  4. 样式或布局修改直接改 index.html 的非自动生成部分。
-  5. 修改后本地预览：`open index.html` 即可（纯静态，无需 dev server）。
-  6. 确认无误后提交推送。
+1. 修改前运行 `rtk git status --short`。
+2. 人工字段先查多维表格，不要从脚本里发明定位、优先级、工作流或待办。
+3. 只改与任务直接相关的文件，不顺手重构群置顶逻辑。
+4. 修改后至少运行 `node scripts/group-info.mjs self-test`。
+5. 涉及飞书写入、群消息发送、批量更新时，先跑 dry-run。
 
-  ## 强制中文输出
+## 不要做什么
 
-  所有飞书群对话输出必须使用中文。仅专有名词（GitHub、Codex、RTK、API、JSON、URL、token 等）保留原文。禁止在描述性文字中混用英文单词替代中文表达。
+- 不要恢复静态网站或 `sync-site`。
+- 不要新增项目宪章、评审记录、多张表或复杂流程。
+- 不要把人工字段重新放回 JSON 注册表。
+- 不要手动编辑其他仓库的 `GROUP_INFO.md`，走脚本更新。
+- 不要引入 npm 依赖、构建工具、JS 框架或后端服务。
 
-  ## 测试 / 检查 / 验证方式
+## 完成标准
 
-  - 无自动测试、类型检查、lint、构建步骤。
-  - 手工验证：`open index.html` 在浏览器中检查卡片、弹窗、表格是否正常显示。
-  - sync-site 后的验证：打开 https://simplyy.github.io/core-repos-index/ 确认部署生效。
-
-  ## 不要做什么
-
-  - 不要手动编辑 `<!-- group-info-*-start -->` 到 `<!-- group-info-*-end -->` 之间的内容。
-  - 不要手动编辑 GROUP_INFO.md。
-  - 不要引入 npm 依赖、构建工具、JS 框架。
-  - 不要修改 GitHub Pages 部署配置（保持 main 分支自动部署）。
-  - 不要在这个仓库里创建子目录或复杂文件结构。
-
-  ## 何时应沉淀为 Skill
-
-  - 站点内容更新已稳定走 group-info 的 sync-site 命令，无需额外 Skill。
-  - 如需新增站点功能（如搜索、筛选、多语言），先评估是否值得，再考虑是否沉淀。
-
-  ## 完成标准
-
-  - 改动仅涉及 index.html 非自动生成区域或本文件。
-  - 自动生成内容通过 sync-site 脚本更新。
-  - 未覆盖用户手动改动。
-  - 本地浏览器预览通过，或 sync-site 已成功推送。
+- 人工判断字段来自 `group index` 多维表格。
+- `GROUP_INFO.md` 保留原有增量生成逻辑。
+- 群置顶逻辑保持原样。
+- `self-test` 通过。
