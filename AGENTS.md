@@ -25,6 +25,7 @@
 ## 关键文件
 
 - `scripts/group-info.mjs`：唯一执行入口。
+- `scripts/lib/`：核心模块目录（`state.js`、`base.js`、`utils.js`、`fields.js`、`frontmatter.js`、`scan.js`）及 `commands/`（`update.js`、`top.js`、`list.js`、`self-test.js`）。
 - `state.json`：机器运行状态，只记录更新时间、置顶消息和上次摘要。
 - `GROUP_INFO.md`：本群 Agent 上下文，由脚本生成。
 - `AGENTS.md`：本文件。
@@ -46,6 +47,9 @@ node scripts/group-info.mjs update-all --apply
 
 # 发卡片 + 置顶
 node scripts/group-info.mjs top --group index --apply
+
+# 全量群发卡片 + 置顶
+node scripts/group-info.mjs top-all --apply
 
 # 自检
 node scripts/group-info.mjs self-test
