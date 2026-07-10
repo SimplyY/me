@@ -89,8 +89,9 @@ export function topGroup(registry, state, group, mode) {
   const chatId = group.chat_id;
 
   if (!chatId) {
-    console.error("错误：群 " + group.name + " 未绑定 chat_id（registry.chat_id 为 null），无法发送群置顶。");
-    process.exit(3);
+    const err3 = "错误：群 " + group.name + " 未绑定 chat_id（registry.chat_id 为 null），无法发送群置顶。";
+    console.error(err3);
+    throw new Error(err3);
   }
 
   if (topSummaryUnchanged(group, summary)) {
@@ -127,22 +128,25 @@ export function topGroup(registry, state, group, mode) {
   ], { encoding: "utf8", maxBuffer: 10 * 1024 * 1024 });
 
   if (sendResult.status !== 0) {
-    console.error("发送卡片失败：", sendResult.stderr || sendResult.stdout);
-    process.exit(4);
+    const err4 = "发送卡片失败：" + (sendResult.stderr || sendResult.stdout);
+    console.error(err4);
+    throw new Error(err4);
   }
 
   let sendData;
   try {
     sendData = JSON.parse(sendResult.stdout);
   } catch (e) {
-    console.error("解析发送响应失败：", sendResult.stdout);
-    process.exit(5);
+    const err5 = "解析发送响应失败：" + sendResult.stdout;
+    console.error(err5);
+    throw new Error(err5);
   }
 
   const messageId = sendData?.data?.message_id || sendData?.message_id;
   if (!messageId) {
-    console.error("发送卡片成功但未获取到 message_id：", sendResult.stdout);
-    process.exit(6);
+    const err6 = "发送卡片成功但未获取到 message_id：" + sendResult.stdout;
+    console.error(err6);
+    throw new Error(err6);
   }
   console.log("卡片已发送，message_id: " + messageId);
 
@@ -159,8 +163,9 @@ export function topGroup(registry, state, group, mode) {
   ], { encoding: "utf8", maxBuffer: 10 * 1024 * 1024 });
 
   if (topResult.status !== 0) {
-    console.error("群置顶失败：", topResult.stderr || topResult.stdout);
-    process.exit(7);
+    const err7 = "群置顶失败：" + (topResult.stderr || topResult.stdout);
+    console.error(err7);
+    throw new Error(err7);
   }
 
   console.log("消息已群置顶");

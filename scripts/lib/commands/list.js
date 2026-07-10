@@ -9,6 +9,8 @@ export function listProjects(registry) {
       const entry = (g.links && g.links.length > 0 && g.links[0].url) || (g.repo ? "https://github.com/SimplyY/" + g.name : "");
       return {
         priority: g.priority || 99,
+        chat_id: g.chat_id || null,
+        group_name: g.group_name || g.name,
         name: g.name,
         positioning: g.positioning || "",
         entry: entry,

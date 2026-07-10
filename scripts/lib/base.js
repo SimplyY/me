@@ -1,5 +1,9 @@
-import { join } from "node:path";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 import { groupIndexBaseToken, groupIndexTableId, groupIndexFields } from "./fields.js";
 import { groupIdFromName, parseLinks, parseManualWorkflows, parseTextItems, parsePriority } from "./utils.js";
 
@@ -26,7 +30,48 @@ export function normalizeBaseRow(row) {
   };
 }
 
-export function fetchGroupIndexGroups() {
+const CACHE_PATH = join(__dirname, "..", "..", "group_cache.json");
+const CACHE_TTL_MS = 2 * 60 * 60 * 1000; // 2 小时
+
+function readCache() {
+  if (!existsSync(CACHE_PATH)) return null;
+  try {
+    const raw = JSON.parse(readFileSync(CACHE_PATH, "utf8"));
+    if (!raw || !raw.ts || !Array.isArray(raw.groups)) return null;
+    return raw;
+  } catch {
+    return null;
+  }
+}
+
+function writeCache(groups) {
+  try {
+    writeFileSync(CACHE_PATH, JSON.stringify({ ts: Date.now(), groups }, null, 2));
+  } catch {
+    // 写缓存失败不阻塞主流程
+  }
+}
+
+function getFromCache() {
+  const cache = readCache();
+  if (!cache) return null;
+  const age = Date.now() - cache.ts;
+  if (age > CACHE_TTL_MS) return null;
+  return { groups: cache.groups, ts: cache.ts };
+}
+
+export function fetchGroupIndexGroups(opts = {}) {
+  const { refresh = false } = opts;
+
+  if (!refresh) {
+    const result = getFromCache();
+    if (result) {
+      console.error("[group-info] 使用缓存群列表（" + Math.round((Date.now() - result.ts) / 1000) + " 秒前）");
+      return result.groups;
+    }
+  }
+
+  console.error("[group-info] 从多维表格拉取群列表...");
   const rows = [];
   let offset = 0;
   while (true) {
@@ -51,6 +96,8 @@ export function fetchGroupIndexGroups() {
     });
     if (result.status !== 0) {
       console.error("读取 group index 多维表格失败：", result.stderr || result.stdout);
+      const cachedFallback1 = readCache();
+      if (cachedFallback1) return cachedFallback1.groups;
       process.exit(11);
     }
     const data = JSON.parse(result.stdout);
@@ -66,7 +113,10 @@ export function fetchGroupIndexGroups() {
   const groups = rows.map(normalizeBaseRow).filter((group) => group.name);
   if (!groups.length) {
     console.error("group index 多维表格没有项目记录");
+    const cachedFallback2 = readCache();
+    if (cachedFallback2) return cachedFallback2.groups;
     process.exit(12);
   }
+  writeCache(groups);
   return groups;
 }
