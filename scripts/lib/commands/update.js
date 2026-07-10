@@ -34,6 +34,7 @@ export function renderGroupInfo(group, scan, v2Fields, now) {
   lines.push("chat_id: " + JSON.stringify(group.chat_id ?? null));
   lines.push("group_name: " + JSON.stringify(group.group_name || group.name));
   lines.push("repo_path: " + JSON.stringify(repoPath));
+  lines.push("repo_url: " + JSON.stringify(group.repo_url || null));
   lines.push("group_info_path: " + JSON.stringify(groupInfoPath));
   lines.push("updated_at: " + JSON.stringify(now));
   lines.push("icon: " + JSON.stringify(icon));
@@ -55,6 +56,7 @@ export function renderGroupInfo(group, scan, v2Fields, now) {
   lines.push("## 绑定信息");
   lines.push("- 飞书群：" + (group.group_name || group.name));
   lines.push("- 工作目录：" + (group.repo || "未在群注册表中记录"));
+  if (group.repo_url) lines.push("- 代码仓库：" + group.repo_url);
   if (hasLinks) { group.links.forEach(function(link) { lines.push("- 链接：" + (link.name || "") + " → " + (link.url || "")); }); }
   lines.push("- 默认机器人：" + (group.bot || "未在群注册表中记录"));
 

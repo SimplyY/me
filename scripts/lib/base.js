@@ -10,20 +10,22 @@ import { groupIdFromName, parseLinks, parseManualWorkflows, parseTextItems, pars
 export function normalizeBaseRow(row) {
   const project = String(row["项目"] || "").trim();
   const repo = String(row["仓库路径"] || "").trim();
+  const repoUrl = parseLinks(row["仓库链接"])[0]?.url || "";
   const links = parseLinks(row["链接"]);
   return {
     id: groupIdFromName(project),
     name: project,
     chat_id: String(row["群 ID"] || "").trim(),
-    group_name: String(row["群名"] || project).trim(),
+    group_name: project,
     repo,
     repo_path: repo,
+    repo_url: repoUrl,
     group_info_path: repo ? join(repo, "GROUP_INFO.md") : "",
     positioning: String(row["定位"] || "").trim(),
     bot: "Codex / Code X bot",
     auto_update: true,
     priority: parsePriority(row["优先级"]),
-    links: links.length ? links : [{ name: "暂无绑定", url: "" }],
+    links,
     manual_workflows: parseManualWorkflows(row["工作流"]),
     todos: parseTextItems(row["待办"] || row["TODO"]),
     notes: String(row["备注"] || "").trim()
