@@ -7,7 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 import { groupIndexBaseToken, groupIndexTableId, groupIndexFields } from "./fields.js";
 import { groupIdFromName, parseLinks, parseManualWorkflows, parseTextItems, parsePriority } from "./utils.js";
 
-export function normalizeBaseRow(row) {
+export function normalizeBaseRow(row, recordId) {
   const project = String(row["项目"] || "").trim();
   const repo = String(row["仓库路径"] || "").trim();
   const repoUrl = parseLinks(row["仓库链接"])[0]?.url || "";
@@ -29,6 +29,8 @@ export function normalizeBaseRow(row) {
     manual_workflows: parseManualWorkflows(row["工作流"]),
     todos: parseTextItems(row["待办"] || row["TODO"]),
     notes: String(row["备注"] || "").trim()
+    ,
+    record_id: recordId || "",
   };
 }
 
@@ -107,12 +109,13 @@ export function fetchGroupIndexGroups(opts = {}) {
     for (const row of data?.data?.data || []) {
       const item = {};
       fields.forEach((field, index) => { item[field] = row[index]; });
-      rows.push(item);
+      const rid = (data?.data?.record_id_list || [])[rows.length] || "";
+      rows.push({ item, rid });
     }
     if (!data?.data?.has_more) break;
     offset += 200;
   }
-  const groups = rows.map(normalizeBaseRow).filter((group) => group.name);
+  const groups = rows.map(({ item, rid }) => normalizeBaseRow(item, rid)).filter((group) => group.name);
   if (!groups.length) {
     console.error("group index 多维表格没有项目记录");
     const cachedFallback2 = readCache();

@@ -86,3 +86,28 @@ node scripts/group-info.mjs self-test
 - `GROUP_INFO.md` 保留原有增量生成逻辑。
 - 群置顶逻辑保持原样。
 - `self-test` 通过。
+
+## 链接维护机制
+
+链接数据源是仓库 README.md（以及 AGENTS.md、docs/TECH.md 等核心文档）。`group-info update` 执行时自动：
+
+1. 从仓库核心文档提取 Markdown 链接（`[name](url)` 格式）和飞书链接。
+2. 按重要性排序：飞书文档/多维表格 > 外部网站；README 靠前 > 靠后；关键段落（核心资产、入口、数据源等）> 普通段落。
+3. 同步到 Base「链接」字段（Markdown 格式，`group-info` 可读）。
+4. 同步到群标签页（doc/url 类型，飞书客户端可见）。
+
+### 维护流转
+
+- **用户**：在仓库 README.md 中维护核心链接，重要链接放前面。
+- **Agent**：`group-info update` 时自动提取 → 同步到 Base + 群标签页 → 渲染到 GROUP_INFO.md。
+- **AGENTS.md**：如果某链接需要长期维护但不在 README 中，Agent 应提示用户将其写入 README（或 README 的「核心资产」段落）。
+- **不自动删除**：Base 和群标签页中手动添加的链接不会被自动删除，只做增量添加和名称更新。
+
+### 链接格式约定
+
+在 README.md 中推荐使用 Markdown 链接格式：
+```
+核心资产：[多维表格](https://xxx.feishu.cn/base/xxx)
+```
+
+这样 `group-info` 能提取到链接名称（「核心资产」）和 URL，自动同步到 Base 和群标签页。

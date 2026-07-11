@@ -7,6 +7,7 @@ import {
   groupIcon, realpathMaybe, statusForPath, formatSkillLine,
   firstSentence, shortDesc, hasChinese
 } from "../utils.js";
+import { syncLinks } from "../link-sync.js";
 
 export function renderGroupInfo(group, scan, v2Fields, now) {
   const repoPath = realpathMaybe(group.repo_path || group.repo);
@@ -153,6 +154,13 @@ export function processGroup(registry, state, group, mode) {
   const now = new Date().toISOString();
   const scan = scanRepo(group);
   const repoPath = realpathMaybe(group.repo_path || group.repo);
+
+  // 从仓库 README 提取链接，同步到 Base 和群标签页
+  const linkResult = syncAndRenderLinks(group, mode);
+  if (linkResult.linksForRender) {
+    group.links = linkResult.linksForRender;
+  }
+
   const target = group.group_info_path || (repoPath ? join(repoPath, "GROUP_INFO.md") : null);
   let v2Fields = null;
   if (target && existsSync(target)) {
@@ -178,5 +186,20 @@ export function processGroup(registry, state, group, mode) {
     saveState(state);
   }
 
-  return { group: group.name, mode, target, markdown, summary };
+  return { group: group.name, mode, target, markdown, summary, linkSync: linkResult.summary };
+}
+
+/**
+ * 从仓库 README 提取链接，同步到 Base「链接」字段和群标签页，
+ * 然后用提取的链接替换 group.links 供后续渲染。
+ */
+export function syncAndRenderLinks(group, mode) {
+  const existingLinks = group.links || [];
+  const result = syncLinks(group, group.record_id, existingLinks, mode);
+  if (result.links && result.links.length > 0) {
+    // 使用 README 提取的链接渲染（保持 {name, url} 格式）
+    const linksForRender = result.links.map(l => ({ name: l.name, url: l.url }));
+    return { ...result, links: result.links, linksForRender };
+  }
+  return { ...result, links: result.links || [], linksForRender: null };
 }
