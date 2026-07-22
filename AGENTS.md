@@ -82,7 +82,7 @@ node scripts/group-info.mjs self-test
 ## 不要做什么
 
 - 不要恢复静态网站或 `sync-site`。
-- 不要新增项目宪章、评审记录、多张表或复杂流程。
+- 不要新增项目宪章、评审记录或复杂流程；「治理文档」索引表是唯一例外，用于归档全局治理与 Skill Thinking 报告（table_id tblKJ7XrYvUOG96y，字段：标题/日期/治理类型/文档链接）。
 - 不要把人工字段重新放回 JSON 注册表。
 - 不要手动编辑其他仓库的 `GROUP_INFO.md`，走脚本更新。
 - 不要引入 npm 依赖、构建工具、JS 框架或后端服务。
